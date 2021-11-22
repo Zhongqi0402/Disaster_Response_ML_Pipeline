@@ -26,11 +26,11 @@ def tokenize(text):
     return clean_tokens
 
 # load data
-engine = create_engine('sqlite:///../data/YourDatabaseName.db')
-df = pd.read_sql_table('YourTableName', engine)
+engine = create_engine('sqlite:///../data/DisasterResponse.db')
+df = pd.read_sql_table('Disaster_Table', engine)
 
 # load model
-model = joblib.load("../models/your_model_name.pkl")
+model = joblib.load("../models/classifier.pkl")
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -45,6 +45,12 @@ def index():
     
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
+    summation = df.iloc[:, 3:].sum()
+    top_five_cat = summation.sort_values(ascending=False)[1:6]
+    top_five_names = list(top_five_cat.index)
+    
+    names = df.iloc[:, 3:].columns
+    distribution = df.iloc[:, 3:].sum().values
     graphs = [
         {
             'data': [
@@ -63,7 +69,44 @@ def index():
                     'title': "Genre"
                 }
             }
+        },
+        {
+            'data': [
+                Bar(
+                    x=top_five_names,
+                    y=top_five_cat
+                )
+            ],
+
+            'layout': {
+                'title': 'Top Five Categories',
+                'yaxis': {
+                    'title': "number of apperance"
+                },
+                'xaxis': {
+                    'title': "categories"
+                }
+            }
+        },
+        {
+            'data': [
+                Bar(
+                    x=names,
+                    y=distribution
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Categories',
+                'yaxis': {
+                    'title': "number of messages"
+                },
+                'xaxis': {
+                    'title': "categories"
+                }
+            }
         }
+        
     ]
     
     # encode plotly graphs in JSON
