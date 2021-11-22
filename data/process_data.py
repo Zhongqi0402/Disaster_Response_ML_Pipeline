@@ -52,6 +52,9 @@ def clean_data(df):
         categories[column] = categories[column].astype(str).str[-1]
         # convert column from string to numeric
         categories[column] = categories[column].astype(int)
+    
+    # Convert related column to binary
+    categories = categories[categories.related != 2]
         
     # drop the original categories column
     df.drop(['categories'], axis=1, inplace=True)
@@ -79,7 +82,7 @@ def save_data(df, database_filename):
        None
     """
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql('Disaster_Table', engine, index=False)
+    df.to_sql('Disaster_Table', engine, index=False, if_exists='replace')
 
 
 def main():
