@@ -1,7 +1,7 @@
 # Disaster_Response_ML_Pipeline
 
 ## Installation
-This project uses the following libraries and should run with python3 interpreter\
+This project uses the following libraries and should run with python3 interpreter
 * Sys
 * Pandas
 * sqlalchemy
@@ -22,9 +22,9 @@ app/run.py: This contains python code that uses Falsk to run the web app. The we
 
 ## How to run the program
 - To run ETL pipeline that cleans data and stores in database\
-        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`\
+        `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
 - To run ML pipeline that trains classifier and saves\
-        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`\
+        `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 - To run the web app, run following command in the app's directory\
     `python run.py`\
      Then go to http://0.0.0.0:3001/\
