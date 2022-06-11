@@ -18,7 +18,7 @@ In the time of emergemcy like natrual disasters, people send information online 
 data/process_data.py: This is the ETL pipeline file. It contains how original raw text data is transformed into data that is ready to go into ML models. It contains operations such as normaliztion, tokenization and lemmatization.\
 data/disaster_messages.csv and data/disaster_categories.csv: These two files contain the data we use in this project.\
 app/templates/go.html and app/templates/master.html: These are two html files that will build the web app.\
-app/run.py: This contains python code that uses Falsk to run the web app. The web app contains visualization of the data and an interface to classify different types of messages.
+app/run.py: This contains python code that uses Falsk to run the web app. The web app contains visualization of the data and an interface to classify different types of messages
 
 ## How to run the program
 - To run ETL pipeline that cleans data and stores in database\
