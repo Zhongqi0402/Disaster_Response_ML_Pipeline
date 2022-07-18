@@ -10,6 +10,7 @@ This project uses the following libraries and should run with python3 interprete
 * re
 * pickle
 * Sckit-learn
+* os
 
 ## Introduction and Motivation
 In the time of emergemcy like natrual disasters, people send information online to disaster response agencies or to social media and ask for help. Different angencies are in charge of different resources. For example, one angency is in charge of water supply while the other is in charge of medical supplies. In this project, data is taken from real world messages that people send in time of natural disasters. It will preprocess all the text data using an ETL pieline and build ML pipeline to classify what kind of this message is. For example, some messages are asking for water but other messages are asking for medical supplies. Then we know where to forward those messages in the time of disasters.
